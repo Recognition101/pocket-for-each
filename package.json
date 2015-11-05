@@ -1,0 +1,27 @@
+{
+  "name": "pocketForEach",
+  "description": "A utility that executes a CLI command for every link in Pocket.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/recognition101/pocketForEach",
+  "keywords": [
+    "pocket",
+    "script",
+    "shell"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/recognition101/pocketForEach"
+  },
+  "author": {
+    "name": "Recognition101",
+    "email": "darklightmw@gmail.com"
+  },
+  "dependencies": {
+    "bluebird": "^3.0.5",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1",
+    "request": "^2.65.0"
+  },
+  "scripts": {}
+}

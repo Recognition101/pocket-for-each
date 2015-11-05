@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css" rel="stylesheet">
+    <title>Pocket For-Each</title>
+</head>
+<body>
+    <h1 class="{{#error}}error-title{{/error}}">
+        {{#error}}Uh oh!{{/error}}
+        {{^error}}Pocket For-Each Setup{{/error}}
+    </h1>
+    
+    <p>
+    {{message}}
+    </p>
+
+    {{#error}}
+    <p>
+    Try again from <a href="/">the start</a>.
+    </p>
+    {{/error}}
+</body>
+</html>
