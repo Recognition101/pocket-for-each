@@ -1,6 +1,7 @@
 /* globals require, console, __dirname, module */
 
 var fs      = require('fs');
+var exec    = require('child_process').exec;
 var path    = require('path');
 var request = require('request');
 var Promise = require('bluebird'); //jshint ignore:line
@@ -15,6 +16,14 @@ var readFile = function readFile(fn, msg) {
 var writeFile = function writeFile(fn, dt, msg) {
     return new Promise(function(yes, no) {
         fs.writeFile(fn, dt, function(e) {return e ? no(msg || e) : yes();});
+    });
+};
+
+var execCmd = function execCmd(cmd) {
+    return new Promise(function(yes, no) {
+        exec(cmd, function(e, stdout, stderr) {
+            return e ? no(e) : yes({out: stdout, err: stderr});
+        });
     });
 };
 
@@ -53,6 +62,7 @@ module.exports = {
     configFilename:   confFn,
     readFile:         readFile,
     writeFile:        writeFile,
+    exec:             execCmd,
     pocket:           pocket,
     appendToSettings: appendToSettings
 };
