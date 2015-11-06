@@ -11,7 +11,7 @@ var badCmdMsg  = 'Must give one argument: a command to run with ' +
 var conf = null;
 var once = {};
 
-cmdr.version('2.0.0')
+cmdr.version('2.0.1')
     .option('-o, --once [filename]', 'An optional JSON file ' +
                 'that maintains a list of URLs that have been run already, ' +
                 'and will not be used again in successive runs.')
@@ -64,6 +64,7 @@ cmdr.version('2.0.0')
                 if (std.out) { console.log(std.out); }
                 if (std.err) { console.error(std.err); }
             }, function(err) {
+                once[curUrl] = true;
                 console.error(err);
             }) : true;
         });
